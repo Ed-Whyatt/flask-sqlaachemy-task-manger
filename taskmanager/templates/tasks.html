@@ -25,9 +25,22 @@
             <strong>{{ task.category }}</strong>
             <p>{{ task.task_description }}</p>
             <p>
-                <a href="{{ url_for('edit_task', task_id=task.id) }}" class="btn green accent-4">Edit</a>
-                <a href="{{ url_for('delete_task', task_id=task.id) }}" class="btn red">Delete</a>
+               <a href="{{ url_for('edit_task', task_id=task.id) }}" class="btn green accent-4">Edit</a>
+               <a href="#modal-{{ task.id }}" class="btn red modal-trigger">Delete</a>
             </p>
+
+             <!-- Modal Structure -->
+            <div id="modal-{{ task.id }}" class="modal indigo darken-3">
+                <div class="modal-content">
+                <h4 class="white-text text-lighten-3">Are you sure you want to delete this Task?</h4>
+                <h5 class="red-text text-accent-4 ">This action can not be undone.</h5>
+                </div>
+                <div class="modal-footer indigo darken-3">
+                <a href="{{ url_for('delete_task', task_id=task.id) }}" class="btn red">Delete</a>
+                <a href="{{ url_for('home') }}" class="btn modal-close green accent-4">Cancel</a>
+                </div>
+            </div>
+
       </div>
     </li>
     {% endfor %}
