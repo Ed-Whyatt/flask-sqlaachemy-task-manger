@@ -27,7 +27,7 @@
           <div id="modal-{{ category.id }}" class="modal indigo darken-3">
             <div class="modal-content">
               <h4 class="white-text text-lighten-3">Are you sure you want to delete this Category?</h4>
-              <h5 class="red-text text-accent-4 ">This action can not be undone.</h5>
+              <h5 class="red-text text-accent-4 ">WARNING:This action can not be undone and will delete all related tasks!</h5>
             </div>
             <div class="modal-footer indigo darken-3">
               <a href="{{ url_for('delete_category', category_id=category.id) }}" class="btn red">Delete</a>
